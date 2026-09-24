@@ -38,13 +38,13 @@ input,select,textarea{font-family:inherit}
   display:flex;
   justify-content:center;
   align-items:flex-start;
-  padding:6px 0 0;
+  padding:20px 0 0;
   margin:0;
   background:transparent;
   pointer-events:none;
   overflow:visible;
   height:auto;
-  min-height:110px;      /* ✅ يضمن مساحة كافية لكل نص الشعار */
+  min-height:500px;      /* ✅ يضمن مساحة كافية لكل نص الشعار */
 }
 /* الحاوية التي تحمل الخلفية والتأثيرات والأنيميشن */
 .nd-header {
@@ -61,7 +61,7 @@ input,select,textarea{font-family:inherit}
   display: block;
   width: auto;
   height: 500px;
-  max-width: min(200vw, 1000px);
+  max-width: min(40vw, 600px);
   object-fit: contain;
   margin: 0;
   padding: 0;
@@ -81,9 +81,9 @@ input,select,textarea{font-family:inherit}
   }
 }
 
-@media (max-width:720px){
-  .nd-header{padding:10px 0 0; min-height:100px}
-  .nd-header img{height:200px}
+@media (max-width:500px){
+  .nd-header{padding:5px 0 0; min-height:100px}
+  .nd-header img{height:100px}
 }
 
 .bg-fixed{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
