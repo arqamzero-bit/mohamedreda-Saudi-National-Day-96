@@ -1506,7 +1506,7 @@ const Cloud = (() => {
   }
   function signInStudent(){
     return new Promise((resolve, reject) => {
-      if (!auth){ resolve(null); return; }
+      if (!auth){ setTimeout(() => signInStudent().then(resolve).catch(reject), 250); return; }
       if (auth.currentUser){ resolve(auth.currentUser); return; }
       auth.signInAnonymously()
         .then(userCred => {
