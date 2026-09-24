@@ -51,23 +51,23 @@ input,select,textarea{font-family:inherit}
 /* ═══ الشريط العلوي ═══ */
 .nd-header{
   position:fixed;
-  top:0;
-  left:50%;
-  transform:translateX(-50%);
+  top:0;left:0;right:0;
   z-index:9999;
-  padding:5px 40px 70px 40px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding:0;
   margin:0;
   pointer-events:none;
+  background:transparent;
+  overflow:visible;
   line-height:0;
   font-size:0;
-  overflow:visible;
-  background:transparent;
 }
 .nd-header img{
   display:block;
-  height:clamp(70px, 10vw, 130px);   /* ← ارتفاع محدد */
-  width:auto;                         /* ← العرض تلقائي */
-  max-width:90vw;
+  width:min(700px, 90vw);
+  height:auto;
   max-height:none;
   object-fit:contain;
   margin:0;
