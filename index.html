@@ -47,17 +47,33 @@ input,select,textarea{font-family:inherit}
 @keyframes floatOrb{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(30px,-40px,0) scale(1.12)}}
 #particles{position:absolute;inset:0;width:100%;height:100%}
 .vignette{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%, transparent 40%, rgba(0,0,0,.6) 100%)}
-  /* ── الهيدر: شعار «عزنا بطبعنا» ── */
-
-  @media (max-width:720px){
-    .nd-header{padding:6px 8px 10px}
-    .nd-header img{width:88vw}
-  }
-</style>
-</head>
-<body>
-
-<div class="nd-header" aria-hidden="true">
+/* ═══ الشريط العلوي — شعار «عزنا بطبعنا» ═══ */
+.nd-header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:50;
+  text-align:center;
+  pointer-events:none;
+  padding:0;
+  margin:0;
+  background:transparent;
+  overflow:visible;
+  line-height:0;
+  font-size:0;
+}
+.nd-header img{
+  display:inline-block;
+  width:500px;
+  max-width:92vw;
+  height:auto;
+  margin:0;
+  padding:0;
+  border:0;
+  vertical-align:top;
+  filter:drop-shadow(0 4px 14px rgba(0,0,0,.65));
+}
   <img id="ndHeaderLogo" src="" alt="عزنا بطبعنا — اليوم الوطني السعودي">
 </div>
 
