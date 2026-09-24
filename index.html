@@ -58,12 +58,20 @@ input,select,textarea{font-family:inherit}
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 10px;
-  padding-bottom: 40px; /* قم بتكبير هذه القيمة لزيادة المساحة أسفل الشعار */
+  padding: 0 0 50px 0; /* الرقم الأخير (50px) هو المسؤول عن المسافة أسفل الشعار */
   margin: 0;
   background: transparent;
   pointer-events: none;
   overflow: visible;
+  line-height: normal; /* تم إزالة الـ 0 لكي يسمح بظهور المساحات */
+  font-size: initial;  /* تم إزالة الـ 0 لكي يعود الحجم طبيعياً */
+}
+
+/* تكبير الصورة نفسها إذا كانت هي المطلوبة */
+.nd-header img {
+  height: 120px; /* جرب زيادة هذا الرقم لتكبر الصورة وتمد للأسفل */
+  width: auto;
+  pointer-events: auto; /* لكي تستجيب الصورة للضغط إن كانت رابطاً */
 }
 .nd-header img{
   display:block;
