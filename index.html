@@ -405,7 +405,40 @@ input,select,textarea{font-family:inherit}
 .board-title .flag-emoji{font-size:1.5em;animation:flagFloat 5s ease-in-out infinite}
 .board-title .txt{background:linear-gradient(180deg,#fff,#f4dfa0 60%,#d9b45a);
   -webkit-background-clip:text;background-clip:text;color:transparent}
-.board-side{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+/* ═══════════════════════════════════════════════
+   📝 شريط السؤال للجمهور (صفحة العرض)
+═══════════════════════════════════════════════ */
+.board-question-bar{
+  padding:20px 34px;
+  background:linear-gradient(180deg, rgba(61,255,176,.10), rgba(217,180,90,.05));
+  border-bottom:2px solid rgba(61,255,176,.30);
+  text-align:center;
+  animation:bqIn .5s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes bqIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+.bq-label{
+  font-size:.8rem;color:var(--gold-l);font-weight:800;
+  letter-spacing:2px;margin-bottom:10px;
+  display:inline-flex;align-items:center;gap:10px;
+}
+.bq-label::before,.bq-label::after{
+  content:'';display:block;height:1px;width:40px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.bq-text{
+  font-size:clamp(1.3rem, 3vw, 2rem);
+  font-weight:800;color:#fff;line-height:1.65;
+  text-shadow:0 0 30px rgba(61,255,176,.4);
+}
+.bq-num{
+  display:inline-block;padding:4px 14px;border-radius:30px;
+  background:linear-gradient(135deg, var(--neon), var(--emerald));
+  color:#031b13;font-size:.7em;font-weight:900;
+  margin-inline-end:10px;
+  box-shadow:0 0 18px rgba(61,255,176,.6);
+  vertical-align:middle;
+}
+  .board-side{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .pin-box{display:flex;align-items:center;gap:10px;padding:10px 20px;border-radius:14px;
   background:linear-gradient(150deg, rgba(217,180,90,.22), rgba(217,180,90,.06));
   border:1px solid rgba(217,180,90,.45);box-shadow:0 0 24px rgba(217,180,90,.35)}
@@ -623,7 +656,61 @@ input,select,textarea{font-family:inherit}
 .audio-info.warn{color:#ffb0b0;border-color:rgba(255,123,123,.4);
   background:linear-gradient(150deg,rgba(190,50,50,.15),transparent)}
 .audio-actions{display:flex;gap:8px;flex-wrap:wrap}
-
+/* ═══════════════════════════════════════════════
+   🖼️ قسم رفع صورة الشعار (صفحة المدير)
+═══════════════════════════════════════════════ */
+.image-upload-section{
+  margin:20px 30px;padding:22px 26px;max-width:1400px;
+  border-radius:22px;
+  background:linear-gradient(150deg, rgba(61,255,176,.12), rgba(217,180,90,.06));
+  border:2px solid rgba(61,255,176,.35);
+  box-shadow:0 0 30px rgba(61,255,176,.2), inset 0 1px 0 rgba(255,255,255,.15);
+}
+.image-upload-title{
+  font-size:1.1rem;font-weight:900;color:var(--gold-l);
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px;
+}
+.image-upload-badge{
+  font-size:.7rem;font-weight:700;padding:5px 14px;border-radius:30px;
+  background:linear-gradient(135deg, var(--neon), var(--emerald));
+  color:#031b13;box-shadow:0 0 14px rgba(61,255,176,.5);
+}
+.image-upload-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.image-file-input{
+  flex:1;min-width:240px;padding:14px 18px;border-radius:14px;
+  background:rgba(0,0,0,.4);
+  border:2px dashed rgba(61,255,176,.5);
+  color:#fff;font-weight:700;font-size:.9rem;
+  cursor:pointer;transition:.3s;
+}
+.image-file-input:hover{border-color:var(--neon);background:rgba(0,0,0,.5)}
+.image-file-input::file-selector-button{
+  font-family:inherit;font-weight:800;font-size:.85rem;
+  padding:8px 16px;margin-inline-end:10px;
+  border-radius:10px;border:none;
+  background:linear-gradient(150deg, var(--neon), var(--emerald));
+  color:#031b13;cursor:pointer;
+}
+.image-preview-box{
+  display:flex;gap:16px;align-items:center;flex-wrap:wrap;
+  padding:14px 16px;border-radius:14px;
+  background:rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.1);
+}
+.image-preview-box img{
+  width:120px;height:auto;max-height:120px;
+  object-fit:contain;border-radius:10px;
+  background:rgba(0,0,0,.3);padding:6px;
+  box-shadow:0 4px 14px rgba(0,0,0,.4);
+}
+.image-actions{display:flex;gap:8px;flex-wrap:wrap}
+.image-info{
+  font-size:.78rem;color:var(--muted);font-weight:600;
+  padding:8px 14px;border-radius:10px;background:rgba(0,0,0,.3);
+  border:1px solid rgba(255,255,255,.08);
+}
+.image-info.ok{color:#7dffc0;border-color:rgba(61,255,176,.4);
+  background:linear-gradient(150deg,rgba(18,162,107,.15),transparent)}
 .student-link-section{margin:20px 30px;padding:24px 28px;max-width:1400px;border-radius:26px;
   background:linear-gradient(150deg, rgba(61,255,176,.14), rgba(217,180,90,.08));
   border:2px solid rgba(61,255,176,.35);
@@ -1089,7 +1176,14 @@ input,select,textarea{font-family:inherit}
       <div class="live-chip"><span class="live-dot"></span><span id="boardCount">0 مشارك</span></div>
       <button class="btn-gold" id="announceWinnerBtn" style="padding:10px 20px;font-size:.9rem">🏆 إعلان الفائز</button>
     </div>
-  </header>
+    </header>
+
+  <!-- 📝 شريط السؤال للجمهور -->
+  <div class="board-question-bar" id="boardQuestionBar" style="display:none">
+    <div class="bq-label">📝 السؤال الحالي</div>
+    <div class="bq-text" id="boardQuestionText"></div>
+  </div>
+
   <div id="boardContent" style="flex:1;display:flex;flex-direction:column"></div>
   <footer class="site-footer">
     <div class="f-title">مسابقة اليوم الوطني السعودي 🇸🇦 — مدارس العرب العالمية - جدة</div>
@@ -1171,7 +1265,28 @@ input,select,textarea{font-family:inherit}
       ℹ️ لم يتم رفع مقطع صوتي بعد
     </div>
   </div>
-
+  <!-- 🖼️ قسم رفع صورة الشعار -->
+  <div class="image-upload-section">
+    <div class="image-upload-title">
+      🖼️ شعار المسابقة (صورة)
+      <span class="image-upload-badge">PNG / JPG / SVG / WEBP</span>
+    </div>
+    <p class="student-link-note" style="color:#f4dfa0">
+      ارفع صورة شعار «عزنا بطبعنا» أو أي شعار آخر. سيظهر مباشرة في أعلى الصفحة. سيُحفظ في متصفحك ويستمر بعد إعادة التحميل.
+    </p>
+    <div class="image-upload-row">
+      <input type="file" id="imageUploadInput" class="image-file-input" accept="image/png,image/jpeg,image/jpg,image/svg+xml,image/webp,image/*">
+    </div>
+    <div class="image-preview-box" id="imagePreviewBox" style="display:none">
+      <img id="imagePreview" src="" alt="معاينة الشعار">
+      <div class="image-actions">
+        <button class="btn-ghost" id="imageDeleteBtn" style="padding:10px 18px;font-size:.85rem;border-color:rgba(255,107,107,.5);color:#ffb0b0">🗑️ حذف الشعار المرفوع</button>
+      </div>
+    </div>
+    <div class="image-info" id="imageInfo" style="margin-top:12px">
+      ℹ️ لم يتم رفع صورة — سيظهر الشعار الافتراضي
+    </div>
+  </div>
   <div class="student-link-section">
     <div class="student-link-title">
       📋 رابط الطلاب
@@ -2279,6 +2394,32 @@ function sortList(list){
 
 function renderBoard(list){
   latestList = list;
+  renderBoardQuestion(list);
+    /* ============================================================
+   📝 عرض السؤال الحالي للجمهور في لوحة العرض
+   (يُظهر نص السؤال فقط — بدون خيارات الإجابة)
+============================================================ */
+function renderBoardQuestion(list){
+  const bar = $('boardQuestionBar');
+  const textEl = $('boardQuestionText');
+  if (!bar || !textEl) return;
+
+  const actives = (list || []).filter(p =>
+    p.live && typeof p.live.qIdx === 'number' && p.live.qIdx >= 0 && p.status !== 'done'
+  );
+
+  if (!actives.length){
+    bar.style.display = 'none';
+    return;
+  }
+
+  actives.sort((a,b) => (b.live.updatedAt || 0) - (a.live.updatedAt || 0));
+  const lead = actives[0];
+  const live = lead.live;
+
+  textEl.innerHTML = `<span class="bq-num">س ${live.qIdx + 1} من ${TOTAL}</span> ${escapeHtml(live.qText || '')}`;
+  bar.style.display = 'block';
+}
   const wrap = $('boardContent');
   $('boardCount').textContent = list.length + ' مشارك';
   if (!list.length){
@@ -2578,8 +2719,9 @@ function openAdminDirect(){
     renderAdminBoard(latestList);
   }
 
-  fillStudentLink();
+   fillStudentLink();
   refreshAudioUI();
+  CustomLogo.updateUI();
 }
 
 /* ============================================================
@@ -2881,6 +3023,7 @@ document.addEventListener('click', e => {
   if (t.id === 'audioPlayBtn') playAudioPreview();
   if (t.id === 'audioStopBtn') stopAudioPreview();
   if (t.id === 'audioDeleteBtn') deleteAudio();
+  if (t.id === 'imageDeleteBtn') deleteCustomLogo();   
 });
 
 document.addEventListener('keydown', e => {
@@ -2996,6 +3139,9 @@ console.log('[Logo] ✓ تم تحميل شعار مدارس العرب في', do
    ============================================================ */
 Cloud.init();
 CustomAudio.loadFromStorage();
+Cloud.init();
+CustomAudio.loadFromStorage();
+CustomLogo.loadFromStorage();   /* ✅ يستبدل الشعار الافتراضي إن وُجد مرفوع */
 buildMap();
 renderMap(0);
 
