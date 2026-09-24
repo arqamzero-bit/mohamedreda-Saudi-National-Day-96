@@ -65,9 +65,11 @@ input,select,textarea{font-family:inherit}
 }
 .nd-header img{
   display:block;
-  width:clamp(200px, 150vw, 600px);
-  height:auto;
+  height:clamp(70px, 10vw, 130px);   /* ← ارتفاع محدد */
+  width:auto;                         /* ← العرض تلقائي */
+  max-width:90vw;
   max-height:none;
+  object-fit:contain;
   margin:0;
   padding:0;
   border:0;
