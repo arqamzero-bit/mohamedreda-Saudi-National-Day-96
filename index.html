@@ -47,11 +47,10 @@ input,select,textarea{font-family:inherit}
 @keyframes floatOrb{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(30px,-40px,0) scale(1.12)}}
 #particles{position:absolute;inset:0;width:100%;height:100%}
 .vignette{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%, transparent 40%, rgba(0,0,0,.6) 100%)}
-
 /* ═══ الشريط العلوي — شعار «عزنا بطبعنا» ═══ */
 .nd-header{
   position:fixed;
-  top:120px;                    /* ← النزول */
+  top:0;
   left:0;
   right:0;
   z-index:50;
@@ -59,7 +58,7 @@ input,select,textarea{font-family:inherit}
   justify-content:center;
   align-items:flex-start;
   padding:0;
-  margin:10;
+  margin:0;
   background:transparent;
   pointer-events:none;
   overflow:visible;
@@ -68,12 +67,12 @@ input,select,textarea{font-family:inherit}
 }
 .nd-header img{
   display:block;
-  width:clamp(320px, 100vw, 540px);
+  width:clamp(280px, 90vw, 520px);
   height:auto;
- margin-top:-30px;
-  margin:-70px 0 0 0;
+  margin:0;
   padding:0;
   border:0;
+  object-fit:contain;
   filter:drop-shadow(0 6px 18px rgba(0,0,0,.65)) drop-shadow(0 0 22px rgba(61,255,176,.20));
 }
 
@@ -715,7 +714,6 @@ input,select,textarea{font-family:inherit}
   box-shadow:0 0 0 3px rgba(61,255,176,.12), 0 0 24px rgba(61,255,176,.2)}
 .rules-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
 .rules-actions button{padding:10px 20px;font-size:.85rem}
-
 /* 🏫 الشعار الحقيقي في الخلفية */
 .school-logo-bg{
   position:fixed;top:50%;left:50%;
