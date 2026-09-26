@@ -1152,18 +1152,6 @@ input,select,textarea{font-family:inherit}
 .rules-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
 .rules-actions button{padding:10px 20px;font-size:.85rem}
 
-.school-logo-bg{
-  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:min(950px,82vw);z-index:1;pointer-events:none;opacity:0.35;
-  filter:drop-shadow(0 0 80px rgba(217,180,90,.6)) drop-shadow(0 0 30px rgba(61,255,176,.3));
-  animation:schoolLogoPulse 8s ease-in-out infinite;
-}
-.school-logo-bg img{width:100%;height:auto;display:block}
-.school-logo-bg img:not([src]), .school-logo-bg img[src=""]{display:none}
-@keyframes schoolLogoPulse{
-  0%,100%{opacity:0.35;transform:translate(-50%,-50%) scale(1)}
-  50%{opacity:0.45;transform:translate(-50%,-50%) scale(1.03)}
-}
 .school-logo-img{display:block;object-fit:contain}
 .school-logo-img:not([src]), .school-logo-img[src=""]{display:none}
 
@@ -1171,7 +1159,7 @@ input,select,textarea{font-family:inherit}
 @media print{
   @page{size:A4;margin:12mm}
   html,body{background:#fff !important;color:#0a2e20 !important}
-  .bg-fixed,.screen,.confetti-layer,.float-btn,.nd-header,.school-logo-bg,.school-bg-animated,.nd-side-decor{display:none !important}
+  .bg-fixed,.screen,.confetti-layer,.float-btn,.nd-header,.school-bg-animated,.nd-side-decor{display:none !important}
   #printSheet{display:block !important}
   .ps-frame{-webkit-print-color-adjust:exact;print-color-adjust:exact;
     border:3px double #0f6b3c;border-radius:16px;padding:26px 30px;
@@ -1324,10 +1312,6 @@ input,select,textarea{font-family:inherit}
 
 <div class="nd-header" aria-hidden="true">
   <img id="ndHeaderImg" src="" alt="عزنا بطبعنا — اليوم الوطني السعودي">
-</div>
-
-<div class="school-logo-bg" aria-hidden="true">
-  <img class="school-logo-img" src="" alt="شعار مدارس العرب العالمية - جدة">
 </div>
 
 <section class="screen" id="screen-login">
@@ -1639,7 +1623,7 @@ input,select,textarea{font-family:inherit}
       <span class="image-upload-badge">PNG / JPG / SVG / WEBP — يُحفظ سحابياً</span>
     </div>
     <p class="student-link-note" style="color:#f4dfa0">
-      ارفع صورة شعار «عزنا بطبعنا». سيظهر مباشرة في أعلى الصفحة، وتُحفظ سحابياً لجميع الأجهزة لحظياً.
+      ارفع صورة شعار «عزنا بطبعنا». سيظهر مباشرة في الشريط العلوي فقط، وتُحفظ سحابياً لجميع الأجهزة لحظياً.
     </p>
     <div class="image-upload-row">
       <input type="file" id="imageUploadInput" class="image-file-input" accept="image/png,image/jpeg,image/jpg,image/svg+xml,image/webp,image/*">
@@ -2494,7 +2478,7 @@ const CustomAudio = (() => {
 })();
 
 /* ============================================================
-   7) نظام الشعار المخصص (الهيدر)
+   7) نظام الشعار المخصص (الشريط العلوي فقط)
    ============================================================ */
 const CustomLogo = (() => {
   const STORAGE_KEY = 'nd_custom_logo_data';
@@ -2509,8 +2493,8 @@ const CustomLogo = (() => {
     return false;
   }
   function applyToHeader(dataURL){
+    // ✅ الشريط العلوي فقط — لا يظهر في أي مكان آخر
     if (headerImg) headerImg.src = dataURL;
-    document.querySelectorAll('.school-logo-bg img').forEach(img => { img.src = dataURL; });
   }
   function setImage(dataURL){
     savedData = dataURL;
@@ -2526,10 +2510,6 @@ const CustomLogo = (() => {
     if (headerImg && typeof HEADER_LOGO_DATA !== 'undefined' && HEADER_LOGO_DATA){
       headerImg.src = HEADER_LOGO_DATA;
     } else if (headerImg){ headerImg.removeAttribute('src'); }
-    document.querySelectorAll('.school-logo-bg img').forEach(img => {
-      if (typeof SCHOOL_LOGO_DATA !== 'undefined' && SCHOOL_LOGO_DATA){ img.src = SCHOOL_LOGO_DATA; }
-      else { img.removeAttribute('src'); }
-    });
     if (typeof MediaSync !== 'undefined') MediaSync.scheduleSave();
   }
   function updateUI(){
@@ -2540,7 +2520,7 @@ const CustomLogo = (() => {
     if (savedData){
       preview.src = savedData;
       box.style.display = 'flex';
-      info.textContent = '✅ شعار مرفوع ومُطبَّق حالياً على الصفحة';
+      info.textContent = '✅ شعار مرفوع ومُطبَّق حالياً على الشريط العلوي فقط';
       info.className = 'image-info ok';
     } else {
       box.style.display = 'none';
@@ -4298,14 +4278,25 @@ $('viewBoardBtn').addEventListener('click', () => {
 
 /* ============================================================
    27) تطبيق الشعارات
+   ⚠️ شعار المدرسة يظهر فقط على: شاشة الدخول + الصفحة الرئيسية + بطاقة الطباعة
+   ⛔ لا يظهر على: لوحة الصدارة، شاشة العرض، التقرير، لوحة المدير، شاشة الأسئلة
    ============================================================ */
 (function applySchoolLogo(){
   if (!SCHOOL_LOGO_DATA || SCHOOL_LOGO_DATA.length < 50){
     console.log('[Logo] ⏳ لم يُضف شعار المدرسة بعد');
     return;
   }
-  document.querySelectorAll('.school-logo-img').forEach(img => { img.src = SCHOOL_LOGO_DATA; });
-  console.log('[Logo] ✓ تم تطبيق شعار مدارس العرب');
+  document.querySelectorAll('.school-logo-img').forEach(img => {
+    // تجاهل أي شعار داخل شاشات: العرض، التقرير، لوحة المدير، الأسئلة، النتيجة
+    if (img.closest('#screen-board')) return;
+    if (img.closest('#screen-report')) return;
+    if (img.closest('#screen-admin')) return;
+    if (img.closest('#screen-quiz')) return;
+    if (img.closest('#screen-result')) return;
+    if (img.closest('#screen-between')) return;
+    img.src = SCHOOL_LOGO_DATA;
+  });
+  console.log('[Logo] ✓ تم تطبيق شعار مدارس العرب (في الأماكن المسموحة فقط)');
 })();
 (function applyHeaderLogo(){
   const el = $('ndHeaderImg');
