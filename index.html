@@ -25,6 +25,7 @@ input,select,textarea{font-family:inherit}
 ::-webkit-scrollbar-track{background:rgba(255,255,255,.03)}
 ::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#12a26b,#0a3d2c);border-radius:20px}
 
+/* ═══ الشريط العلوي ═══ */
 .nd-header{
   position:fixed;top:0;left:0;right:0;z-index:60;
   display:flex;justify-content:center;align-items:flex-start;
@@ -71,6 +72,7 @@ input,select,textarea{font-family:inherit}
 #particles{position:absolute;inset:0;width:100%;height:100%}
 .vignette{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%, transparent 40%, rgba(0,0,0,.6) 100%)}
 
+/* 🏫 شعار المدرسة كخلفية متحركة */
 .school-bg-animated{
   position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
 }
@@ -88,6 +90,7 @@ input,select,textarea{font-family:inherit}
   100%{top:110%;opacity:0;transform:translateX(-50%) scale(1.05)}
 }
 
+/* 🖼️ الصور الجانبية المتحركة */
 .nd-side-decor{
   position:fixed;top:0;bottom:0;z-index:1;pointer-events:none;
   overflow:visible;width:clamp(70px, 13vw, 200px);
@@ -466,7 +469,6 @@ input,select,textarea{font-family:inherit}
   text-align:right;
   box-shadow:0 4px 14px rgba(0,0,0,.3);
   animation:bqOptIn .5s cubic-bezier(.22,1,.36,1) both;
-  transition:box-shadow .3s, border-color .3s;
 }
 .bq-opt[data-shape="0"]{background:linear-gradient(150deg, rgba(226,27,60,.28), rgba(160,19,44,.10)); border-color:rgba(226,27,60,.5)}
 .bq-opt[data-shape="1"]{background:linear-gradient(150deg, rgba(19,104,206,.28), rgba(12,63,128,.10)); border-color:rgba(19,104,206,.5)}
@@ -521,48 +523,6 @@ input,select,textarea{font-family:inherit}
   filter:drop-shadow(0 2px 14px rgba(217,180,90,.55));
 }
 
-.board-winner-banner.winner-active{
-  background:linear-gradient(180deg, rgba(217,180,90,.35), rgba(61,255,176,.15));
-  border-bottom:2px solid rgba(217,180,90,.7);
-  box-shadow:0 0 40px rgba(217,180,90,.5), inset 0 1px 0 rgba(255,255,255,.3);
-  animation:winnerBannerIn .9s cubic-bezier(.22,1.6,.36,1) both, winnerGlow 2.4s ease-in-out infinite 1s;
-}
-@keyframes winnerBannerIn{
-  from{opacity:0;transform:translateY(-30px) scale(.85)}
-  to{opacity:1;transform:none}
-}
-@keyframes winnerGlow{
-  0%,100%{box-shadow:0 0 40px rgba(217,180,90,.5), inset 0 1px 0 rgba(255,255,255,.3)}
-  50%{box-shadow:0 0 70px rgba(217,180,90,.9), 0 0 120px rgba(61,255,176,.4), inset 0 1px 0 rgba(255,255,255,.5)}
-}
-.board-winner-banner.winner-active .bwb-name{
-  font-size:clamp(1.6rem, 4.5vw, 3rem);
-  font-weight:900;
-  background:linear-gradient(90deg, #fff, #f4dfa0, #fff, #d9b45a, #fff);
-  background-size:300% 100%;
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  animation:winnerShine 2.2s linear infinite, winnerPulse 1.6s ease-in-out infinite;
-  filter:drop-shadow(0 0 20px rgba(217,180,90,.85)) drop-shadow(0 0 40px rgba(217,180,90,.5));
-  letter-spacing:2px;
-}
-@keyframes winnerShine{
-  0%{background-position:200% 0}
-  100%{background-position:-100% 0}
-}
-@keyframes winnerPulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.06)}
-}
-.board-winner-banner.winner-active .bwb-label{
-  animation:labelPulse 1.2s ease-in-out infinite;
-  color:#fff;font-size:1.05rem;
-  text-shadow:0 0 16px rgba(217,180,90,1);
-}
-@keyframes labelPulse{
-  0%,100%{transform:scale(1);opacity:1}
-  50%{transform:scale(1.12);opacity:.85}
-}
-
 .board-separator{
   height:2px;margin:20px 30px 0;
   background:linear-gradient(90deg, transparent, var(--neon), var(--gold), var(--neon), transparent);
@@ -614,35 +574,21 @@ input,select,textarea{font-family:inherit}
 @keyframes crownFloat{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-10px) rotate(6deg)}}
 
 .bars-grid{flex:1;padding:20px 30px 30px;display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(60px,1fr));
-  gap:10px;align-items:end;max-width:1700px;margin:0 auto;width:100%;min-height:220px}
+  grid-template-columns:repeat(auto-fill, minmax(90px,1fr));
+  gap:12px;align-items:end;max-width:1700px;margin:0 auto;width:100%;min-height:220px}
 .bar-col{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
   gap:4px;height:100%;animation:barIn .8s cubic-bezier(.22,1,.36,1) both}
 @keyframes barIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
 .bar-value{font-size:.85rem;font-weight:900;color:var(--gold-l);
   text-shadow:0 0 12px rgba(217,180,90,.7);min-height:1.2em}
-.bar-fill{width:100%;max-width:38px;border-radius:10px 10px 0 0;min-height:8px;
-  box-shadow:0 0 22px rgba(61,255,176,.65), 0 0 45px rgba(61,255,176,.32), inset 0 1px 0 rgba(255,255,255,.5);
-  transition:height 1.2s cubic-bezier(.22,1,.36,1), background .4s, box-shadow .4s;
-  position:relative}
+.bar-fill{width:100%;max-width:70px;border-radius:14px 14px 0 0;min-height:10px;
+  background:linear-gradient(180deg,#3dffb0 0%,#12a26b 40%,#0d5638 100%);
+  box-shadow:0 0 24px rgba(61,255,176,.65), 0 0 50px rgba(61,255,176,.35), inset 0 1px 0 rgba(255,255,255,.5);
+  transition:height 1.2s cubic-bezier(.22,1,.36,1), background .4s;position:relative}
 .bar-fill::after{content:'';position:absolute;inset:0;border-radius:inherit;
   background:linear-gradient(180deg,rgba(255,255,255,.35),transparent 40%);pointer-events:none}
-
-.bar-fill.color-0{background:linear-gradient(180deg,#3dffb0,#0d5638);box-shadow:0 0 22px rgba(61,255,176,.7),inset 0 1px 0 rgba(255,255,255,.5)}
-.bar-fill.color-1{background:linear-gradient(180deg,#5bb8ff,#0a4a80);box-shadow:0 0 22px rgba(91,184,255,.65),inset 0 1px 0 rgba(255,255,255,.5)}
-.bar-fill.color-2{background:linear-gradient(180deg,#b06bff,#4a1f80);box-shadow:0 0 22px rgba(176,107,255,.65),inset 0 1px 0 rgba(255,255,255,.5)}
-.bar-fill.color-3{background:linear-gradient(180deg,#ff6b9d,#801f4a);box-shadow:0 0 22px rgba(255,107,157,.65),inset 0 1px 0 rgba(255,255,255,.5)}
-.bar-fill.color-4{background:linear-gradient(180deg,#ffa94d,#80501f);box-shadow:0 0 22px rgba(255,169,77,.65),inset 0 1px 0 rgba(255,255,255,.5)}
-.bar-fill.color-5{background:linear-gradient(180deg,#4dffd0,#1f8070);box-shadow:0 0 22px rgba(77,255,208,.65),inset 0 1px 0 rgba(255,255,255,.5)}
-
-.bar-fill.top1{background:linear-gradient(180deg,#f4dfa0,#a8842f)!important;
-  box-shadow:0 0 26px rgba(217,180,90,.85),inset 0 1px 0 rgba(255,255,255,.6)!important}
-.bar-fill.top2{background:linear-gradient(180deg,#e8f2ee,#7d8f88)!important;
-  box-shadow:0 0 22px rgba(200,220,210,.7)!important}
-.bar-fill.top3{background:linear-gradient(180deg,#e8c390,#8a6a44)!important;
-  box-shadow:0 0 22px rgba(200,150,100,.7)!important}
-.bar-fill.me{outline:2px solid #f4dfa0;outline-offset:2px}
-
+.bar-fill.me{background:linear-gradient(180deg,#f4dfa0 0%,#d9b45a 40%,#a8842f 100%);
+  box-shadow:0 0 30px rgba(217,180,90,.85), 0 0 60px rgba(217,180,90,.5), inset 0 1px 0 rgba(255,255,255,.7)}
 .bar-name{font-size:.82rem;font-weight:800;color:#fff;text-align:center;max-width:100%;
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:2px 4px 0;
   text-shadow:0 2px 8px rgba(0,0,0,.6)}
@@ -875,6 +821,7 @@ input,select,textarea{font-family:inherit}
 }
 .logo-size-note{font-size:.75rem;color:var(--muted);margin-top:10px;line-height:1.6}
 
+/* 🖼️ الصور الجانبية */
 .side-images-section,
 .bg-logo-section{
   margin:20px 30px;padding:22px 26px;max-width:1400px;border-radius:22px;
@@ -1037,26 +984,18 @@ input,select,textarea{font-family:inherit}
 .admin-section-title{font-size:1rem;font-weight:800;color:var(--gold-l);
   margin-bottom:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .admin-section-title span{font-size:.8rem;color:var(--muted);font-weight:600}
-.admin-bars-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(72px,1fr));
+.admin-bars-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(80px,1fr));
   gap:10px;align-items:end;min-height:200px;max-height:320px;
   overflow-y:auto;overflow-x:hidden;padding:14px;
   background:rgba(0,0,0,.25);border-radius:16px;border:1px solid rgba(255,255,255,.06)}
 .admin-bars-grid .bar-col{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;
   animation:barIn .6s cubic-bezier(.22,1,.36,1) both}
-.admin-bars-grid .bar-fill{width:100%;max-width:34px;min-height:8px;
-  border-radius:10px 10px 0 0;
-  transition:height .9s cubic-bezier(.22,1,.36,1);position:relative;
-  box-shadow:0 0 16px rgba(61,255,176,.5), inset 0 1px 0 rgba(255,255,255,.3)}
+.admin-bars-grid .bar-fill{width:100%;max-width:52px;min-height:8px;
+  border-radius:10px 10px 0 0;background:linear-gradient(180deg,#3dffb0,#0d5638);
+  box-shadow:0 0 16px rgba(61,255,176,.5), inset 0 1px 0 rgba(255,255,255,.3);
+  transition:height .9s cubic-bezier(.22,1,.36,1);position:relative}
 .admin-bars-grid .bar-fill::after{content:'';position:absolute;inset:0;border-radius:inherit;
   background:linear-gradient(180deg,rgba(255,255,255,.3),transparent 40%)}
-
-.admin-bars-grid .bar-fill.color-0{background:linear-gradient(180deg,#3dffb0,#0d5638)}
-.admin-bars-grid .bar-fill.color-1{background:linear-gradient(180deg,#5bb8ff,#0a4a80)}
-.admin-bars-grid .bar-fill.color-2{background:linear-gradient(180deg,#b06bff,#4a1f80)}
-.admin-bars-grid .bar-fill.color-3{background:linear-gradient(180deg,#ff6b9d,#801f4a)}
-.admin-bars-grid .bar-fill.color-4{background:linear-gradient(180deg,#ffa94d,#80501f)}
-.admin-bars-grid .bar-fill.color-5{background:linear-gradient(180deg,#4dffd0,#1f8070)}
-
 .admin-bars-grid .bar-fill.top1{background:linear-gradient(180deg,#f4dfa0,#a8842f);
   box-shadow:0 0 24px rgba(217,180,90,.75), inset 0 1px 0 rgba(255,255,255,.5)}
 .admin-bars-grid .bar-fill.top2{background:linear-gradient(180deg,#e8f2ee,#7d8f88);
@@ -1152,6 +1091,18 @@ input,select,textarea{font-family:inherit}
 .rules-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
 .rules-actions button{padding:10px 20px;font-size:.85rem}
 
+.school-logo-bg{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:min(950px,82vw);z-index:1;pointer-events:none;opacity:0.35;
+  filter:drop-shadow(0 0 80px rgba(217,180,90,.6)) drop-shadow(0 0 30px rgba(61,255,176,.3));
+  animation:schoolLogoPulse 8s ease-in-out infinite;
+}
+.school-logo-bg img{width:100%;height:auto;display:block}
+.school-logo-bg img:not([src]), .school-logo-bg img[src=""]{display:none}
+@keyframes schoolLogoPulse{
+  0%,100%{opacity:0.35;transform:translate(-50%,-50%) scale(1)}
+  50%{opacity:0.45;transform:translate(-50%,-50%) scale(1.03)}
+}
 .school-logo-img{display:block;object-fit:contain}
 .school-logo-img:not([src]), .school-logo-img[src=""]{display:none}
 
@@ -1159,7 +1110,7 @@ input,select,textarea{font-family:inherit}
 @media print{
   @page{size:A4;margin:12mm}
   html,body{background:#fff !important;color:#0a2e20 !important}
-  .bg-fixed,.screen,.confetti-layer,.float-btn,.nd-header,.school-bg-animated,.nd-side-decor{display:none !important}
+  .bg-fixed,.screen,.confetti-layer,.float-btn,.nd-header,.school-logo-bg,.school-bg-animated,.nd-side-decor{display:none !important}
   #printSheet{display:block !important}
   .ps-frame{-webkit-print-color-adjust:exact;print-color-adjust:exact;
     border:3px double #0f6b3c;border-radius:16px;padding:26px 30px;
@@ -1213,16 +1164,15 @@ input,select,textarea{font-family:inherit}
   .screen{padding-top:90px}
   #screen-quiz{padding-top:85px}
   #screen-board,#screen-report,#screen-admin{padding-top:100px}
-  .bars-grid{grid-template-columns:repeat(auto-fill, minmax(52px,1fr));gap:7px;padding:14px}
-  .bar-name{font-size:.7rem}
-  .bar-value{font-size:.72rem}
-  .bar-rank,.bar-time{font-size:.6rem}
-  .bar-fill{max-width:30px}
+  .bars-grid{grid-template-columns:repeat(auto-fill, minmax(70px,1fr));gap:8px;padding:14px}
+  .bar-name{font-size:.72rem}
+  .bar-value{font-size:.75rem}
+  .bar-rank,.bar-time{font-size:.62rem}
   .admin-middle{grid-template-columns:1fr;padding:0 14px}
   .admin-live-board{padding:14px}
   .admin-question-preview,.admin-bottom,.student-link-section,.audio-upload-section,.image-upload-section,.side-images-section,.bg-logo-section{margin:14px;padding:16px}
   .admin-question-preview .q-preview-options{grid-template-columns:1fr}
-  .admin-bars-grid{grid-template-columns:repeat(auto-fill, minmax(58px,1fr));gap:6px;padding:10px}
+  .admin-bars-grid{grid-template-columns:repeat(auto-fill, minmax(62px,1fr));gap:6px;padding:10px}
   #screen-login{padding-top:100px;padding-bottom:20px}
   #screen-login .login-wrap{padding:14px;max-width:100%}
   .login-card{padding:22px 18px}
@@ -1305,15 +1255,24 @@ input,select,textarea{font-family:inherit}
   <div class="vignette"></div>
 </div>
 
+<!-- 🏫 شعار المدرسة كخلفية متحركة -->
 <div class="school-bg-animated" aria-hidden="true"></div>
 
+<!-- 🖼️ الصور الجانبية المتحركة -->
 <div class="nd-side-decor left" aria-hidden="true"></div>
 <div class="nd-side-decor right" aria-hidden="true"></div>
 
+<!-- 🇸🇦 الشريط العلوي -->
 <div class="nd-header" aria-hidden="true">
   <img id="ndHeaderImg" src="" alt="عزنا بطبعنا — اليوم الوطني السعودي">
 </div>
 
+<!-- 🏫 شعار المدرسة الأصلي في الخلفية -->
+<div class="school-logo-bg" aria-hidden="true">
+  <img class="school-logo-img" src="" alt="شعار مدارس العرب العالمية - جدة">
+</div>
+
+<!-- 🔐 شاشة دخول المدير -->
 <section class="screen" id="screen-login">
   <div class="login-wrap">
     <div class="login-card glass">
@@ -1341,6 +1300,7 @@ input,select,textarea{font-family:inherit}
   </div>
 </section>
 
+<!-- شاشة الطلاب -->
 <section class="screen" id="screen-start">
   <div class="start-wrap">
     <div class="flag-holder">
@@ -1377,6 +1337,7 @@ input,select,textarea{font-family:inherit}
   </footer>
 </section>
 
+<!-- شاشة الأسئلة -->
 <section class="screen" id="screen-quiz">
   <header class="quiz-header">
     <div class="quiz-brand">
@@ -1410,6 +1371,7 @@ input,select,textarea{font-family:inherit}
   </footer>
 </section>
 
+<!-- شاشة استعد -->
 <section class="screen" id="screen-between">
   <div class="between-wrap">
     <div class="between-title">استعد للسؤال التالي</div>
@@ -1424,6 +1386,7 @@ input,select,textarea{font-family:inherit}
   </footer>
 </section>
 
+<!-- شاشة النتائج -->
 <section class="screen" id="screen-result">
   <svg class="result-bg-flag" viewBox="0 0 300 200" aria-hidden="true"><use href="#saudiFlag"></use></svg>
   <div class="result-wrap">
@@ -1455,6 +1418,7 @@ input,select,textarea{font-family:inherit}
   </footer>
 </section>
 
+<!-- لوحة الصدارة -->
 <section class="screen" id="screen-board">
   <header class="board-header">
     <div class="board-title">
@@ -1501,6 +1465,7 @@ input,select,textarea{font-family:inherit}
   </footer>
 </section>
 
+<!-- شاشة الفائز -->
 <section class="screen" id="screen-winner">
   <div class="winner-wrap">
     <div class="winner-crown">👑</div>
@@ -1518,6 +1483,7 @@ input,select,textarea{font-family:inherit}
   </footer>
 </section>
 
+<!-- التقرير -->
 <section class="screen" id="screen-report">
   <header class="report-header">
     <div class="report-title">تقرير مسابقة اليوم الوطني السعودي</div>
@@ -1534,6 +1500,7 @@ input,select,textarea{font-family:inherit}
   </footer>
 </section>
 
+<!-- ⚙️ لوحة المدير -->
 <section class="screen" id="screen-admin">
   <header class="admin-header">
     <div class="admin-title">⚙️ لوحة المدير — مدارس العرب العالمية</div>
@@ -1549,10 +1516,10 @@ input,select,textarea{font-family:inherit}
   <div class="audio-upload-section">
     <div class="audio-upload-title">
       🎵 المقطع الصوتي للمسابقة
-      <span class="audio-upload-badge">MP3 / MP4 / WAV — يُحفظ سحابياً</span>
+      <span class="audio-upload-badge">MP3 / MP4 / WAV</span>
     </div>
     <p class="student-link-note" style="color:#f4dfa0">
-      ارفع المقطع الصوتي الذي سيُشغَّل تلقائياً عند بدء المسابقة. سيُحفظ في Firebase Storage ويظهر عند جميع الأجهزة لحظياً.
+      ارفع المقطع الصوتي الذي سيُشغَّل تلقائياً عند بدء المسابقة.
     </p>
     <div class="audio-upload-row">
       <input type="file" id="audioUploadInput" class="audio-file-input" accept="audio/mpeg,audio/mp3,audio/mp4,audio/wav,audio/ogg,audio/*">
@@ -1570,21 +1537,23 @@ input,select,textarea{font-family:inherit}
     </div>
   </div>
 
+  <!-- 🖼️ الصور الجانبية المتحركة -->
   <div class="side-images-section">
     <div class="side-images-title">
       🖼️ الصور الجانبية المتحركة
-      <span class="side-images-badge">5 مواضع — تُحفظ سحابياً</span>
+      <span class="side-images-badge">5 مواضع — يمين ويسار</span>
     </div>
     <p class="student-link-note" style="color:#f4dfa0">
-      ارفع حتى 5 صور، ستظهر موزعة تلقائياً على جانبي الشاشة مع حركة دوران وطفو مستمرة، وتُحفظ في السحابة وتظهر لحظياً على كل الأجهزة.
+      ارفع حتى 5 صور، ستظهر موزعة تلقائياً على جانبي الشاشة مع حركة دوران وطفو مستمرة. كل صورة لها حجم خاص.
     </p>
     <div id="sideImagesContainer"></div>
   </div>
 
+  <!-- 🏫 شعار المدرسة كخلفية متحركة -->
   <div class="bg-logo-section">
     <div class="bg-logo-title">
       🏫 شعار المدرسة (خلفية متحركة)
-      <span class="bg-logo-badge">يُحفظ سحابياً</span>
+      <span class="bg-logo-badge">تظهر من أعلى لأسفل</span>
     </div>
     <p class="student-link-note" style="color:#f4dfa0">
       ارفع شعار المدرسة، سيظهر كخلفية خلف كل الصفحات وينزل من أعلى الشاشة لأسفلها بشكل متكرر.
@@ -1617,13 +1586,14 @@ input,select,textarea{font-family:inherit}
     </div>
   </div>
 
+  <!-- 🖼️ شعار المسابقة (الهيدر) -->
   <div class="image-upload-section">
     <div class="image-upload-title">
       🖼️ شعار «عزنا بطبعنا» (الشريط العلوي)
-      <span class="image-upload-badge">PNG / JPG / SVG / WEBP — يُحفظ سحابياً</span>
+      <span class="image-upload-badge">PNG / JPG / SVG / WEBP</span>
     </div>
     <p class="student-link-note" style="color:#f4dfa0">
-      ارفع صورة شعار «عزنا بطبعنا». سيظهر مباشرة في الشريط العلوي فقط، وتُحفظ سحابياً لجميع الأجهزة لحظياً.
+      ارفع صورة شعار «عزنا بطبعنا». سيظهر مباشرة في أعلى الصفحة.
     </p>
     <div class="image-upload-row">
       <input type="file" id="imageUploadInput" class="image-file-input" accept="image/png,image/jpeg,image/jpg,image/svg+xml,image/webp,image/*">
@@ -1651,7 +1621,7 @@ input,select,textarea{font-family:inherit}
         <button type="button" class="logo-size-preset" data-size="700">ضخم</button>
       </div>
       <div class="logo-size-note">
-        💡 سيُطبَّق الحجم فوراً على الشعار المرفوع وسيُحفظ تلقائياً في السحابة.
+        💡 سيُطبَّق الحجم فوراً على الشعار المرفوع وسيُحفظ تلقائياً.
       </div>
     </div>
   </div>
@@ -1675,25 +1645,7 @@ input,select,textarea{font-family:inherit}
       <div class="student-link-actions">
         <button class="btn-ghost" id="shareWhatsappBtn" style="padding:10px 18px;font-size:.85rem">💬 واتساب</button>
         <button class="btn-ghost" id="openStudentLinkBtn" style="padding:10px 18px;font-size:.85rem">👁️ معاينة</button>
-      </div>
-    </div>
-
-    <div style="margin-top:22px;padding-top:18px;border-top:1px dashed rgba(217,180,90,.4)">
-      <div style="font-weight:800;color:#d9b45a;margin-bottom:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-        📺 رابط شاشة العرض (Full Screen)
-        <span class="student-link-badge" style="background:linear-gradient(135deg,#f4dfa0,#d9b45a);color:#231a04">عرض علني</span>
-      </div>
-      <p class="student-link-note">
-        افتح هذا الرابط على شاشة العرض (بروجكتور أو تلفاز). يعرض الأعمدة والسؤال الحالي مع الاختيارات والتايمر كما يظهر عند الطالب، ويعرض الفائز تلقائياً عند الانتهاء.
-      </p>
-      <div class="student-link-box">
-        <input type="text" id="boardLinkInput" class="student-link-input" readonly>
-        <button class="btn-primary student-link-copy" id="copyBoardLinkBtn">📋 نسخ</button>
-      </div>
-      <div class="student-link-extras" style="margin-top:14px">
-        <div class="student-link-actions">
-          <button class="btn-gold" id="openBoardFromAdminBtn" style="padding:10px 22px;font-size:.85rem">👁️ فتح شاشة العرض الآن</button>
-        </div>
+        <button class="btn-ghost" id="openBoardFromAdminBtn" style="padding:10px 18px;font-size:.85rem">📺 شاشة العرض</button>
       </div>
     </div>
   </div>
@@ -1766,9 +1718,9 @@ input,select,textarea{font-family:inherit}
   </div>
 
   <div class="admin-bottom glass">
-    <div class="admin-section-title">🔥 قواعد Firestore + Storage — انسخها والصقها في Console</div>
+    <div class="admin-section-title">🔥 قواعد Firestore — انسخها والصقها في Console</div>
     <p class="admin-note" style="margin-bottom:10px">
-      افتح Firebase Console → Firestore Database → Rules والصق القواعد أدناه. ثم افتح Storage → Rules والصق قواعد Storage.
+      افتح Firebase Console → Firestore Database → Rules والصق القواعد أدناه.
     </p>
     <textarea id="firebaseRules" class="rules-editor" spellcheck="false">rules_version = '2';
 
@@ -1785,37 +1737,29 @@ service cloud.firestore {
     }
 
     match /national_day_96_results/{resultId} {
+
       allow read: if isAdmin()
                   || (isAuthenticated() && resource.data.id == resultId);
+
       allow create, update: if isAdmin()
                     || (isAuthenticated()
                         && request.resource.data.id == resultId
-                        && request.resource.data.uid == request.auth.uid);
-      allow delete: if isAdmin();
-    }
+                        && request.resource.data.uid == request.auth.uid
+                        && request.resource.data.name is string
+                        && request.resource.data.name.size() >= 2
+                        && request.resource.data.name.size() <= 50
+                        && request.resource.data.score is number
+                        && request.resource.data.score >= 0
+                        && request.resource.data.score <= 20000);
 
-    // 📸 الوسائط (روابط فقط — الملفات في Storage)
-    match /national_day_96_media/{docId} {
-      allow read: if true;
-      allow write: if isAdmin();
+      allow delete: if isAdmin();
     }
 
     match /{document=**} {
       allow read, write: if false;
     }
   }
-}
-
-// ════ Firebase Storage Rules ════
-// rules_version = '2';
-// service firebase.storage {
-//   match /b/{bucket}/o {
-//     match /national_day_96_media/{allPaths=**} {
-//       allow read: if true;
-//       allow write: if request.auth != null;
-//     }
-//   }
-// }</textarea>
+}</textarea>
     <div class="rules-actions">
       <button class="btn-gold" id="copyRulesBtn">📋 نسخ القواعد</button>
       <button class="btn-primary" id="openFirebaseBtn">🔗 فتح Firebase Console</button>
@@ -1823,6 +1767,7 @@ service cloud.firestore {
   </div>
 </section>
 
+<!-- بطاقة الطباعة -->
 <div id="printSheet">
   <div class="ps-frame">
     <div class="ps-head">
@@ -1962,23 +1907,24 @@ const Cloud = (() => {
     catch(e){ return {}; }
   }
   function loadFirebaseSDK(cb){
-    if (typeof firebase !== 'undefined' && firebase.firestore && firebase.storage) return cb();
-    const base = 'https://www.gstatic.com/firebasejs/10.7.1/';
-    const load = (src) => new Promise((res, rej) => {
-      const s = document.createElement('script');
-      s.src = base + src;
-      s.onload = res;
-      s.onerror = () => { console.warn('[SDK] Failed:', src); rej(); };
-      document.head.appendChild(s);
-    });
-    load('firebase-app-compat.js')
-      .then(() => Promise.all([
-        load('firebase-firestore-compat.js').catch(()=>null),
-        load('firebase-storage-compat.js').catch(()=>null),
-        load('firebase-auth-compat.js').catch(()=>null)
-      ]))
-      .then(() => cb())
-      .catch(() => initLocal());
+    if (typeof firebase !== 'undefined' && firebase.firestore) return cb();
+    const s1 = document.createElement('script');
+    s1.src = 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js';
+    s1.onload = () => {
+      const s2 = document.createElement('script');
+      s2.src = 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js';
+      s2.onload = () => {
+        const s3 = document.createElement('script');
+        s3.src = 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js';
+        s3.onload = cb;
+        s3.onerror = () => { console.warn('[Auth] SDK failed'); cb(); };
+        document.head.appendChild(s3);
+      };
+      s2.onerror = () => { console.warn('[Firestore] SDK failed'); initLocal(); };
+      document.head.appendChild(s2);
+    };
+    s1.onerror = () => { console.warn('[App] SDK failed'); initLocal(); };
+    document.head.appendChild(s1);
   }
   function sortFn(a, b){
     if (b.score !== a.score) return b.score - a.score;
@@ -1990,9 +1936,6 @@ const Cloud = (() => {
         try {
           if (!firebase.apps.length) firebase.initializeApp(CLOUD_CONFIG.firebase);
           if (firebase.firestore) db = firebase.firestore();
-          if (typeof MediaSync !== 'undefined'){
-            try { MediaSync.bind(db); } catch(e){ console.warn('[Media] bind failed', e); }
-          }
           if (CLOUD_CONFIG.useFirebaseAuth && firebase.auth){
             auth = firebase.auth();
             auth.onAuthStateChanged(user => {
@@ -2155,177 +2098,6 @@ const Cloud = (() => {
 })();
 
 /* ============================================================
-   4.5) MediaSync — حفظ الوسائط + البث اللحظي
-   ============================================================ */
-const MediaSync = (() => {
-  const COLLECTION = 'national_day_96_media';
-  const DOC = 'config';
-  const LS_KEY = 'nd_media_sync_v1';
-  let db = null, storage = null, ready = false, saveTimer = null, loadDone = false;
-  let unsubscribe = null;
-  let applyingRemote = false;
-
-  function bind(firestore){
-    db = firestore;
-    if (typeof firebase !== 'undefined' && firebase.storage){
-      try { storage = firebase.storage(); } catch(e){ console.warn('[Media] storage unavailable', e); }
-    }
-    ready = !!db;
-    console.log('[Media] bound — storage:', !!storage, 'db:', !!db);
-  }
-
-  function dataURLToBlob(dataURL){
-    const parts = dataURL.split(',');
-    if (parts.length < 2) throw new Error('invalid dataURL');
-    const m = parts[0].match(/:(.*?);/);
-    const mime = m ? m[1] : 'application/octet-stream';
-    const bstr = atob(parts[1]);
-    const u8 = new Uint8Array(bstr.length);
-    for (let i = 0; i < bstr.length; i++) u8[i] = bstr.charCodeAt(i);
-    return new Blob([u8], { type: mime });
-  }
-
-  async function uploadBlob(blob, prefix){
-    if (!storage) throw new Error('Storage غير متاح — تحقق من قواعد Firebase Storage');
-    const ext = (blob.type.split('/')[1] || 'bin')
-      .replace('svg+xml','svg').replace('quicktime','mov').replace('x-matroska','mkv');
-    const path = `national_day_96_media/${prefix}_${Date.now()}_${Math.random().toString(36).slice(2,7)}.${ext}`;
-    const ref = storage.ref(path);
-    const snap = await ref.put(blob);
-    return await snap.ref.getDownloadURL();
-  }
-
-  async function uploadDataURL(dataURL, prefix){
-    return await uploadBlob(dataURLToBlob(dataURL), prefix);
-  }
-  async function uploadFile(file, prefix){
-    return await uploadBlob(file, prefix);
-  }
-
-  function collectConfig(){
-    return {
-      headerLogo: (typeof CustomLogo !== 'undefined' && CustomLogo.getData()) || '',
-      logoSize: (typeof LogoSize !== 'undefined' && LogoSize.getSize()) || 520,
-      bgLogo: (typeof BgLogo !== 'undefined' && BgLogo.get().data) || '',
-      bgLogoSize: (typeof BgLogo !== 'undefined' && BgLogo.get().size) || 400,
-      bgLogoOpacity: (typeof BgLogo !== 'undefined' && BgLogo.get().opacity) || 15,
-      bgLogoSpeed: (typeof BgLogo !== 'undefined' && BgLogo.get().speed) || 22,
-      sideImages: (typeof SideImages !== 'undefined' && SideImages.getAll) ? SideImages.getAll() : [],
-      audio: (typeof CustomAudio !== 'undefined' && CustomAudio.getData()) || '',
-      audioName: (typeof CustomAudio !== 'undefined' && CustomAudio.getName()) || '',
-      updatedAt: Date.now()
-    };
-  }
-
-  function scheduleSave(){
-    if (applyingRemote) return;
-    if (saveTimer) clearTimeout(saveTimer);
-    saveTimer = setTimeout(() => { saveTimer = null; saveNow(); }, 900);
-  }
-
-  async function saveNow(){
-    const config = collectConfig();
-    try { localStorage.setItem(LS_KEY, JSON.stringify(config)); } catch(e){}
-    if (!db) return;
-    try {
-      await db.collection(COLLECTION).doc(DOC).set(config, { merge: false });
-      console.log('[Media] ✓ saved to Firestore');
-    } catch(e){ console.warn('[Media] Save failed:', e.message); }
-  }
-
-  async function load(){
-    if (db){
-      try {
-        const doc = await db.collection(COLLECTION).doc(DOC).get();
-        if (doc.exists){
-          const data = doc.data();
-          try { localStorage.setItem(LS_KEY, JSON.stringify(data)); } catch(e){}
-          loadDone = true;
-          return data;
-        }
-      } catch(e){ console.warn('[Media] Load failed:', e.message); }
-    }
-    try { return JSON.parse(localStorage.getItem(LS_KEY) || '{}'); } catch(e){ return {}; }
-  }
-
-  function listen(){
-    if (!db || unsubscribe) return;
-    unsubscribe = db.collection(COLLECTION).doc(DOC).onSnapshot(
-      doc => {
-        if (!doc.exists) return;
-        const data = doc.data();
-        console.log('[Media] 🔄 realtime update received');
-        applyingRemote = true;
-        try { applyConfig(data); }
-        catch(e){ console.warn('[Media] apply failed', e); }
-        finally { applyingRemote = false; }
-      },
-      err => console.warn('[Media] listen failed:', err.message)
-    );
-  }
-
-  function applyConfig(config){
-    if (!config || typeof config !== 'object') return;
-
-    // 🖼️ شعار الهيدر
-    if (typeof CustomLogo !== 'undefined'){
-      if (config.headerLogo){
-        if (CustomLogo.getData() !== config.headerLogo){
-          CustomLogo.setImage(config.headerLogo);
-        }
-      } else if (CustomLogo.getData()){
-        CustomLogo.clearImage();
-      }
-      CustomLogo.updateUI();
-    }
-
-    // 🎚️ حجم الشعار
-    if (typeof config.logoSize === 'number' && typeof LogoSize !== 'undefined'){
-      if (LogoSize.getSize() !== config.logoSize) LogoSize.setSize(config.logoSize, true);
-    }
-
-    // 🏫 شعار الخلفية
-    if (typeof BgLogo !== 'undefined'){
-      const cur = BgLogo.get();
-      const newData = config.bgLogo || '';
-      if (cur.data !== newData
-          || cur.size !== (config.bgLogoSize || 400)
-          || cur.opacity !== (config.bgLogoOpacity != null ? config.bgLogoOpacity : 15)
-          || cur.speed !== (config.bgLogoSpeed || 22)){
-        BgLogo.applyFromCloud(newData, config.bgLogoSize, config.bgLogoOpacity, config.bgLogoSpeed);
-      }
-    }
-
-    // 🖼️ الصور الجانبية
-    if (Array.isArray(config.sideImages) && typeof SideImages !== 'undefined' && SideImages.setAll){
-      const cur = JSON.stringify(SideImages.getAll());
-      const next = JSON.stringify(config.sideImages);
-      if (cur !== next) SideImages.setAll(config.sideImages);
-    }
-
-    // 🎵 الصوت
-    if (typeof CustomAudio !== 'undefined'){
-      if (config.audio){
-        if (CustomAudio.getData() !== config.audio){
-          CustomAudio.setAudioFromCloud(config.audio, config.audioName || 'audio');
-        }
-      } else if (CustomAudio.getData()){
-        CustomAudio.setAudioFromCloud('', '');
-      }
-    }
-  }
-
-  function isReady(){ return ready; }
-  function hasStorage(){ return !!storage; }
-
-  return {
-    bind, uploadFile, uploadDataURL,
-    scheduleSave, saveNow, load, applyConfig, listen,
-    isReady, hasStorage, collectConfig
-  };
-})();
-
-/* ============================================================
    5) المؤثرات الصوتية
    ============================================================ */
 const Sfx = (() => {
@@ -2395,26 +2167,6 @@ const CustomAudio = (() => {
     showAudioButton();
     updateAudioInfo();
   }
-  function setAudioFromCloud(url, name){
-    if (!url){
-      audioData = null; audioName = '';
-      audioEl.pause(); audioEl.src = '';
-      try { localStorage.removeItem(AUDIO_STORAGE_KEY); } catch(e){}
-      hideAudioButton();
-      updateAudioInfo();
-      const box = $('audioPlayerBox'); if (box) box.style.display = 'none';
-      return;
-    }
-    audioData = url;
-    audioName = name || 'audio';
-    audioEl.src = url;
-    showAudioButton();
-    updateAudioInfo();
-    try { localStorage.setItem(AUDIO_STORAGE_KEY, JSON.stringify({ data: url, name: audioName, savedAt: Date.now() })); } catch(e){}
-    const box = $('audioPlayerBox');
-    const prev = $('audioPreview');
-    if (prev){ prev.src = url; if (box) box.style.display = 'flex'; }
-  }
   function clearAudio(){
     audioData = null; audioName = '';
     audioEl.pause(); audioEl.src = '';
@@ -2422,7 +2174,6 @@ const CustomAudio = (() => {
     hideAudioButton();
     updateAudioInfo();
     const box = $('audioPlayerBox'); if (box) box.style.display = 'none';
-    if (typeof MediaSync !== 'undefined') MediaSync.scheduleSave();
   }
   function showAudioButton(){ if (audioBtn) audioBtn.style.display = 'grid'; updateIcon(); }
   function hideAudioButton(){ if (audioBtn) audioBtn.style.display = 'none'; }
@@ -2470,7 +2221,7 @@ const CustomAudio = (() => {
     } catch(e){ return false; }
   }
   return {
-    loadFromStorage, setAudio, setAudioFromCloud, clearAudio, saveToStorage,
+    loadFromStorage, setAudio, clearAudio, saveToStorage,
     getData: () => audioData, getName: () => audioName,
     isMuted: () => audioMuted, setMuted: v => { audioMuted = v; updateIcon(); },
     tryPlay: () => audioEl.play().catch(()=>{}), pause: () => audioEl.pause()
@@ -2478,7 +2229,7 @@ const CustomAudio = (() => {
 })();
 
 /* ============================================================
-   7) نظام الشعار المخصص (الشريط العلوي فقط)
+   7) نظام الشعار المخصص (الهيدر)
    ============================================================ */
 const CustomLogo = (() => {
   const STORAGE_KEY = 'nd_custom_logo_data';
@@ -2493,15 +2244,14 @@ const CustomLogo = (() => {
     return false;
   }
   function applyToHeader(dataURL){
-    // ✅ الشريط العلوي فقط — لا يظهر في أي مكان آخر
     if (headerImg) headerImg.src = dataURL;
+    document.querySelectorAll('.school-logo-bg img').forEach(img => { img.src = dataURL; });
   }
   function setImage(dataURL){
     savedData = dataURL;
     try { localStorage.setItem(STORAGE_KEY, dataURL); }
     catch(e){ return false; }
     applyToHeader(dataURL);
-    if (typeof MediaSync !== 'undefined') MediaSync.scheduleSave();
     return true;
   }
   function clearImage(){
@@ -2510,7 +2260,10 @@ const CustomLogo = (() => {
     if (headerImg && typeof HEADER_LOGO_DATA !== 'undefined' && HEADER_LOGO_DATA){
       headerImg.src = HEADER_LOGO_DATA;
     } else if (headerImg){ headerImg.removeAttribute('src'); }
-    if (typeof MediaSync !== 'undefined') MediaSync.scheduleSave();
+    document.querySelectorAll('.school-logo-bg img').forEach(img => {
+      if (typeof SCHOOL_LOGO_DATA !== 'undefined' && SCHOOL_LOGO_DATA){ img.src = SCHOOL_LOGO_DATA; }
+      else { img.removeAttribute('src'); }
+    });
   }
   function updateUI(){
     const box = $('imagePreviewBox');
@@ -2520,7 +2273,7 @@ const CustomLogo = (() => {
     if (savedData){
       preview.src = savedData;
       box.style.display = 'flex';
-      info.textContent = '✅ شعار مرفوع ومُطبَّق حالياً على الشريط العلوي فقط';
+      info.textContent = '✅ شعار مرفوع ومُطبَّق حالياً على الصفحة';
       info.className = 'image-info ok';
     } else {
       box.style.display = 'none';
@@ -2531,28 +2284,19 @@ const CustomLogo = (() => {
   return { loadFromStorage, setImage, clearImage, updateUI, getData: () => savedData };
 })();
 
-async function handleImageUpload(e){
+function handleImageUpload(e){
   const file = e.target.files[0];
   if (!file) return;
   if (!file.type.startsWith('image/')){ alert('⚠️ الرجاء اختيار ملف صورة'); return; }
   if (file.size > 3 * 1024 * 1024){ alert('⚠️ الصورة كبيرة جداً\nالحد الأقصى: 3 ميجا'); return; }
-  const info = $('imageInfo');
-  if (info){ info.textContent = '⏳ جاري الرفع للسحابة...'; info.className = 'image-info warn'; }
-  try {
-    let url;
-    if (MediaSync.hasStorage()) url = await MediaSync.uploadFile(file, 'header_logo');
-    else url = await new Promise((res, rej) => {
-      const r = new FileReader(); r.onload = ev => res(ev.target.result); r.onerror = rej;
-      r.readAsDataURL(file);
-    });
-    const ok = CustomLogo.setImage(url);
-    if (ok) showCopyToast('✅ تم رفع الشعار وحفظه سحابياً');
+  const reader = new FileReader();
+  reader.onload = function(ev){
+    const ok = CustomLogo.setImage(ev.target.result);
+    if (ok) showCopyToast('✅ تم رفع الشعار');
     else alert('⚠️ لم يتم حفظ الصورة');
     CustomLogo.updateUI();
-  } catch(err){
-    console.warn(err);
-    alert('⚠️ فشل الرفع: ' + err.message);
-  }
+  };
+  reader.readAsDataURL(file);
 }
 function deleteCustomLogo(){
   if (!confirm('هل تريد حذف الشعار المرفوع والعودة للافتراضي؟')) return;
@@ -2609,17 +2353,14 @@ const LogoSize = (() => {
     });
   }
 
-  function setSize(size, silent){
-    apply(size); save(size); updateUI(size);
-    if (!silent && typeof MediaSync !== 'undefined') MediaSync.scheduleSave();
-  }
+  function setSize(size){ apply(size); save(size); updateUI(size); }
   function getSize(){ return currentSize; }
   function reset(){ setSize(DEFAULT_SIZE); }
   return { loadFromStorage, setSize, getSize, updateUI, reset, apply };
 })();
 
 /* ============================================================
-   7.6) نظام الصور الجانبية المتحركة
+   7.6) نظام الصور الجانبية المتحركة (5 مواضع)
    ============================================================ */
 const SideImages = (() => {
   const KEY = 'nd_side_images';
@@ -2640,9 +2381,8 @@ const SideImages = (() => {
     renderAdminUI();
   }
 
-  function save(silent){
+  function save(){
     try { localStorage.setItem(KEY, JSON.stringify(data)); } catch(e){}
-    if (!silent && typeof MediaSync !== 'undefined') MediaSync.scheduleSave();
   }
 
   function setImage(slot, dataURL){
@@ -2663,15 +2403,6 @@ const SideImages = (() => {
     if (slot < 0 || slot >= SLOTS) return;
     data[slot] = null;
     save(); render(); renderAdminUI();
-  }
-
-  function getAll(){ return JSON.parse(JSON.stringify(data)); }
-  function setAll(arr){
-    if (!Array.isArray(arr)) return;
-    data = arr.slice(0, SLOTS);
-    while (data.length < SLOTS) data.push(null);
-    try { localStorage.setItem(KEY, JSON.stringify(data)); } catch(e){}
-    render(); renderAdminUI();
   }
 
   function render(){
@@ -2734,23 +2465,18 @@ const SideImages = (() => {
     }
 
     container.querySelectorAll('.slot-upload').forEach(input => {
-      input.addEventListener('change', async e => {
+      input.addEventListener('change', e => {
         const slot = parseInt(e.target.dataset.slot, 10);
         const file = e.target.files[0];
         if (!file) return;
         if (!file.type.startsWith('image/')){ alert('⚠️ اختر صورة'); return; }
-        if (file.size > 3 * 1024 * 1024){ alert('⚠️ الصورة كبيرة جداً'); return; }
-        try {
-          let url;
-          if (typeof MediaSync !== 'undefined' && MediaSync.hasStorage())
-            url = await MediaSync.uploadFile(file, 'side_' + slot);
-          else url = await new Promise((res, rej) => {
-            const r = new FileReader(); r.onload = ev => res(ev.target.result); r.onerror = rej;
-            r.readAsDataURL(file);
-          });
-          setImage(slot, url);
+        if (file.size > 3 * 1024 * 1024){ alert('⚠️ الصورة كبيرة جداً (3 ميجا كحد أقصى)'); return; }
+        const reader = new FileReader();
+        reader.onload = ev => {
+          setImage(slot, ev.target.result);
           showCopyToast('✅ تم رفع الصورة ' + (slot + 1));
-        } catch(err){ alert('⚠️ فشل: ' + err.message); }
+        };
+        reader.readAsDataURL(file);
       });
     });
 
@@ -2776,7 +2502,7 @@ const SideImages = (() => {
     });
   }
 
-  return { loadFromStorage, setImage, setSize, removeImage, render, renderAdminUI, getAll, setAll };
+  return { loadFromStorage, setImage, setSize, removeImage, render, renderAdminUI };
 })();
 
 /* ============================================================
@@ -2799,9 +2525,8 @@ const BgLogo = (() => {
     renderAdminUI();
   }
 
-  function save(silent){
+  function save(){
     try { localStorage.setItem(KEY, JSON.stringify(config)); } catch(e){}
-    if (!silent && typeof MediaSync !== 'undefined') MediaSync.scheduleSave();
   }
 
   function setImage(dataURL){ config.data = dataURL; save(); render(); renderAdminUI(); }
@@ -2809,15 +2534,6 @@ const BgLogo = (() => {
   function setSize(size){ config.size = size; save(); render(); }
   function setOpacity(op){ config.opacity = op; save(); render(); }
   function setSpeed(sp){ config.speed = sp; save(); render(); }
-
-  function applyFromCloud(data, size, opacity, speed){
-    config.data = data || '';
-    if (typeof size === 'number') config.size = size;
-    if (typeof opacity === 'number') config.opacity = opacity;
-    if (typeof speed === 'number') config.speed = speed;
-    save(true);
-    render(); renderAdminUI();
-  }
 
   function render(){
     const wrap = document.querySelector('.school-bg-animated');
@@ -2858,8 +2574,7 @@ const BgLogo = (() => {
     if (speedVal) speedVal.textContent = config.speed + 's';
   }
 
-  return { loadFromStorage, setImage, removeImage, setSize, setOpacity, setSpeed,
-           render, renderAdminUI, applyFromCloud, get: () => config };
+  return { loadFromStorage, setImage, removeImage, setSize, setOpacity, setSpeed, render, renderAdminUI, get: () => config };
 })();
 
 function bindLogoSizeControls(){
@@ -2887,22 +2602,17 @@ function bindBgLogoControls(){
   const input = $('bgLogoInput');
   if (input && !input.dataset.bound){
     input.dataset.bound = '1';
-    input.addEventListener('change', async e => {
+    input.addEventListener('change', e => {
       const file = e.target.files[0];
       if (!file) return;
       if (!file.type.startsWith('image/')){ alert('⚠️ اختر صورة'); return; }
-      if (file.size > 3 * 1024 * 1024){ alert('⚠️ الصورة كبيرة جداً'); return; }
-      try {
-        let url;
-        if (typeof MediaSync !== 'undefined' && MediaSync.hasStorage())
-          url = await MediaSync.uploadFile(file, 'bg_logo');
-        else url = await new Promise((res, rej) => {
-          const r = new FileReader(); r.onload = ev => res(ev.target.result); r.onerror = rej;
-          r.readAsDataURL(file);
-        });
-        BgLogo.setImage(url);
+      if (file.size > 3 * 1024 * 1024){ alert('⚠️ الصورة كبيرة جداً (3 ميجا كحد أقصى)'); return; }
+      const reader = new FileReader();
+      reader.onload = ev => {
+        BgLogo.setImage(ev.target.result);
         showCopyToast('✅ تم رفع شعار الخلفية');
-      } catch(err){ alert('⚠️ فشل: ' + err.message); }
+      };
+      reader.readAsDataURL(file);
     });
   }
 
@@ -3411,12 +3121,11 @@ function shareUrl(){
 }
 
 /* ============================================================
-   17) لوحة الصدارة + الفائز التلقائي
+   17) لوحة الصدارة + السؤال للجمهور
    ============================================================ */
 let latestList = [];
 let boardSubscribed = false;
 let boardTimerInterval = null;
-let currentWinnerId = null;
 
 function sortList(list){
   return list.slice().sort((a, b) => {
@@ -3450,75 +3159,19 @@ function startBoardTimer(startedAt, duration){
   boardTimerInterval = setInterval(tick, 100);
 }
 
-function checkAutoWinner(list){
-  if (!list || !list.length) return;
-  const playing = list.filter(p => p.name && p.status !== 'done');
-  const done = sortList(list.filter(p => p.name && p.status === 'done'));
-
-  if (playing.length > 0 || !done.length) return;
-
-  const winner = done[0];
-  if (currentWinnerId === winner.id) return;
-  currentWinnerId = winner.id;
-
-  const banner = $('boardWinnerBanner');
-  const nameEl = $('boardWinnerName');
-  const labelEl = banner ? banner.querySelector('.bwb-label') : null;
-  if (banner && nameEl){
-    if (labelEl) labelEl.textContent = '🏆 الفائز بالمسابقة';
-    nameEl.textContent = winner.name + ' — ' + winner.score + ' نقطة (' + winner.correct + '/' + TOTAL + ')';
-    banner.style.display = 'flex';
-    banner.classList.add('winner-active');
-  }
-
-  Sfx.winner();
-  startConfettiLoop();
-  showWinnerMarquee(winner.name);
-}
-
-function showWinnerMarquee(name){
-  const old = document.getElementById('ndWinnerMarquee');
-  if (old) old.remove();
-  const el = document.createElement('div');
-  el.id = 'ndWinnerMarquee';
-  el.textContent = '🏆 ' + name + ' 🏆';
-  el.style.cssText = `
-    position:fixed;top:30vh;left:0;right:0;z-index:9998;pointer-events:none;
-    font-family:'Cairo',sans-serif;font-weight:900;
-    font-size:clamp(3rem, 9vw, 8rem);
-    text-align:center;white-space:nowrap;
-    background:linear-gradient(90deg,#fff,#f4dfa0,#fff,#d9b45a,#fff);
-    background-size:300% 100%;
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    filter:drop-shadow(0 0 30px rgba(217,180,90,1)) drop-shadow(0 0 60px rgba(217,180,90,.7));
-    animation:winnerMarqueeMove 6s ease-in-out infinite, winnerShine 2.2s linear infinite;
-    opacity:0;transition:opacity .6s;
-  `;
-  if (!document.getElementById('ndWinnerMarqueeStyle')){
-    const style = document.createElement('style');
-    style.id = 'ndWinnerMarqueeStyle';
-    style.textContent = `@keyframes winnerMarqueeMove{
-      0%{transform:translateX(-15vw) scale(.8)}
-      50%{transform:translateX(15vw) scale(1.05)}
-      100%{transform:translateX(-15vw) scale(.8)}
-    }`;
-    document.head.appendChild(style);
-  }
-  document.body.appendChild(el);
-  requestAnimationFrame(() => { el.style.opacity = '1'; });
-  setTimeout(() => { el.style.opacity = '0'; setTimeout(() => el.remove(), 800); }, 9000);
-}
-
 function renderBoardQuestion(list){
   const bar = $('boardQuestionBar');
   const textEl = $('boardQuestionText');
   const optsEl = $('boardOptionsGrid');
   const winnerBanner = $('boardWinnerBanner');
+  const winnerNameEl = $('boardWinnerName');
   if (!bar || !textEl) return;
 
-  checkAutoWinner(list);
-
-  if (!currentWinnerId && winnerBanner){
+  if (winnerBanner && winnerNameEl && list && list.length){
+    const top = sortList(list)[0];
+    winnerNameEl.textContent = top.name + ' · ' + top.score + ' نقطة';
+    winnerBanner.style.display = 'flex';
+  } else if (winnerBanner){
     winnerBanner.style.display = 'none';
   }
 
@@ -3545,17 +3198,6 @@ function renderBoardQuestion(list){
         <span class="bq-opt-text">${escapeHtml(o)}</span>
       </div>
     `).join('');
-  }
-
-  if (live.chosen !== null && live.chosen !== undefined && live.chosen >= 0 && optsEl){
-    const chosenEl = optsEl.querySelector(`.bq-opt[data-shape="${live.chosen}"]`);
-    const correctEl = optsEl.querySelector(`.bq-opt[data-shape="${live.correctIdx}"]`);
-    if (correctEl) correctEl.style.boxShadow = '0 0 30px rgba(61,255,176,.8)';
-    if (chosenEl && live.chosen === live.correctIdx){
-      chosenEl.style.borderColor = '#3dffb0';
-    } else if (chosenEl){
-      chosenEl.style.borderColor = '#ff6b6b';
-    }
   }
 
   bar.style.display = 'block';
@@ -3598,22 +3240,25 @@ function renderBoard(list){
       }).join('')}
     </div>
   `;
-  const restHtml = rest.map((p, i) => {
-    const rank = i + 4;
-    const h = Math.max(18, Math.round((p.score / maxScore) * 150));
-    const isMe = p.id === student.id;
-    const timeStr = (p.totalTime || 0).toFixed(1);
-    const colorIdx = (p.id || '').split('').reduce((a,c)=>a+c.charCodeAt(0),0) % 6;
-    return `
-      <div class="bar-col" style="animation-delay:${(i*0.04).toFixed(2)}s">
-        <span class="bar-value">${p.score}</span>
-        <div class="bar-fill color-${colorIdx} ${isMe ? 'me' : ''}" style="height:${h}px"></div>
-        <span class="bar-name" title="${escapeHtml(p.name)}">${escapeHtml(p.name)}</span>
-        <span class="bar-rank">#${rank}</span>
-        <span class="bar-time">${timeStr}ث</span>
-      </div>`;
-  }).join('');
-  const barsHtml = rest.length ? `<div class="bars-grid">${restHtml}</div>` : '';
+  const barsHtml = rest.length ? `
+    <div class="bars-grid">
+      ${rest.map((p, i) => {
+        const rank = i + 4;
+        const h = Math.max(20, Math.round((p.score / maxScore) * 160));
+        const isMe = p.id === student.id;
+        const timeStr = (p.totalTime || 0).toFixed(1);
+        return `
+          <div class="bar-col" style="animation-delay:${(i*0.05).toFixed(2)}s">
+            <span class="bar-value">${p.score}</span>
+            <div class="bar-fill ${isMe ? 'me' : ''}" style="height:${h}px"></div>
+            <span class="bar-name" title="${escapeHtml(p.name)}">${escapeHtml(p.name)}</span>
+            <span class="bar-rank">#${rank}</span>
+            <span class="bar-time">${timeStr}ث</span>
+          </div>
+        `;
+      }).join('')}
+    </div>
+  ` : '';
   wrap.innerHTML = podiumHtml + barsHtml;
 }
 
@@ -3878,17 +3523,16 @@ function renderAdminBoard(list){
   } else {
     const sorted = sortList(latestList);
     const maxScore = Math.max(...sorted.map(x => Number(x.score) || 0), 1);
-    wrap.innerHTML = sorted.slice(0, 80).map((p, i) => {
-      const h = Math.max(12, Math.round(((Number(p.score) || 0) / maxScore) * 145));
+    wrap.innerHTML = sorted.slice(0, 60).map((p, i) => {
+      const h = Math.max(12, Math.round(((Number(p.score) || 0) / maxScore) * 150));
       const rank = i + 1;
       const topClass = rank === 1 ? 'top1' : rank === 2 ? 'top2' : rank === 3 ? 'top3' : '';
-      const colorIdx = (p.id || '').split('').reduce((a,c)=>a+c.charCodeAt(0),0) % 6;
       const playing = p.status !== 'done';
       return `
-        <div class="bar-col" style="animation-delay:${(i*0.025).toFixed(2)}s">
+        <div class="bar-col" style="animation-delay:${(i*0.03).toFixed(2)}s">
           <button class="bar-del-btn" type="button" data-del-id="${escapeHtml(p.id)}" data-del-name="${escapeHtml(p.name)}" title="حذف ${escapeHtml(p.name)}" aria-label="حذف">×</button>
           <span class="bar-value">${Number(p.score) || 0}</span>
-          <div class="bar-fill ${topClass || ('color-' + colorIdx)}" style="height:${h}px"></div>
+          <div class="bar-fill ${topClass}" style="height:${h}px"></div>
           <span class="bar-name" title="${escapeHtml(p.name)}">${escapeHtml(p.name)}</span>
           <span class="bar-rank">#${rank}</span>
           ${playing
@@ -3959,19 +3603,18 @@ function openFirebaseConsole(){
 }
 
 /* ============================================================
-   21) روابط الطلاب + شاشة العرض
+   21) رابط الطلاب
    ============================================================ */
 function getStudentLink(){ return shareUrl() + '?s=1'; }
-function getBoardLink(){ return shareUrl() + '?view=board'; }
 function fillStudentLink(){
   const link = getStudentLink();
   const input = $('studentLinkInput');
   if (input) input.value = link;
   const qr = $('studentQrImg');
-  if (qr) qr.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=6&data=${encodeURIComponent(link)}`;
-
-  const bi = $('boardLinkInput');
-  if (bi) bi.value = getBoardLink();
+  if (qr){
+    const u = encodeURIComponent(link);
+    qr.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=6&data=${u}`;
+  }
 }
 function copyStudentLink(){
   const input = $('studentLinkInput');
@@ -3983,7 +3626,7 @@ function copyStudentLink(){
 }
 function fallbackCopy(input){
   input.select(); input.setSelectionRange(0, 99999);
-  try { document.execCommand('copy'); showCopyToast('✅ تم النسخ'); }
+  try { document.execCommand('copy'); showCopyToast('✅ تم نسخ رابط الطلاب'); }
   catch(e){ alert('انسخ الرابط يدوياً:\n' + input.value); }
 }
 function showCopyToast(msg){
@@ -4017,10 +3660,9 @@ function shareWhatsapp(){
   window.open('https://wa.me/?text=' + text, '_blank');
 }
 function openStudentLink(){ window.open(getStudentLink(), '_blank'); }
-function openBoardLink(){ window.open(getBoardLink(), '_blank'); }
 
 /* ============================================================
-   22) رفع الصوت
+   22) رفع المقطع الصوتي
    ============================================================ */
 function refreshAudioUI(){
   const data = CustomAudio.getData();
@@ -4033,33 +3675,25 @@ function refreshAudioUI(){
     if (box) box.style.display = 'none';
   }
 }
-async function handleAudioUpload(e){
+function handleAudioUpload(e){
   const file = e.target.files[0];
   if (!file) return;
   if (!file.type.startsWith('audio/') && !file.type.startsWith('video/')){
     alert('⚠️ الرجاء اختيار ملف صوتي'); return;
   }
-  if (file.size > 8 * 1024 * 1024){
-    alert('⚠️ الملف كبير جداً\nالحد الأقصى: 8 ميجا'); return;
+  if (file.size > 4 * 1024 * 1024){
+    alert('⚠️ الملف كبير جداً\nالحد الأقصى: 4 ميجا'); return;
   }
-  const info = $('audioInfo');
-  if (info){ info.textContent = '⏳ جاري الرفع للسحابة...'; info.className = 'audio-info warn'; }
-  try {
-    let url;
-    if (MediaSync.hasStorage()) url = await MediaSync.uploadFile(file, 'audio');
-    else url = await new Promise((res, rej) => {
-      const r = new FileReader(); r.onload = ev => res(ev.target.result); r.onerror = rej;
-      r.readAsDataURL(file);
-    });
-    CustomAudio.setAudio(url, file.name);
-    CustomAudio.saveToStorage();
+  const reader = new FileReader();
+  reader.onload = function(ev){
+    const dataURL = ev.target.result;
+    CustomAudio.setAudio(dataURL, file.name);
+    const saved = CustomAudio.saveToStorage();
+    if (!saved) alert('⚠️ لم يتم حفظ الملف بشكل دائم');
+    else showCopyToast('✅ تم رفع الملف: ' + file.name);
     refreshAudioUI();
-    MediaSync.scheduleSave();
-    showCopyToast('✅ تم رفع الملف: ' + file.name);
-  } catch(err){
-    console.warn(err);
-    alert('⚠️ فشل الرفع: ' + err.message);
-  }
+  };
+  reader.readAsDataURL(file);
 }
 function deleteAudio(){
   if (!confirm('هل تريد حذف المقطع الصوتي؟')) return;
@@ -4089,7 +3723,7 @@ async function deleteParticipant(id, name){
   try {
     const ok = await Cloud.deleteResult(id);
     if (ok) showCopyToast('🗑️ تم حذف: ' + (name || 'مشارك'));
-    else showCopyToast('⚠️ تم الحذف محلياً');
+    else showCopyToast('⚠️ تم الحذف محلياً — قد يحتاج تحديث الصفحة');
   } catch(e){
     alert('⚠️ خطأ في الحذف: ' + e.message);
   }
@@ -4159,20 +3793,9 @@ document.addEventListener('click', e => {
   if (t.id === 'copyRulesBtn') copyRules();
   if (t.id === 'openFirebaseBtn') openFirebaseConsole();
   if (t.id === 'copyStudentLinkBtn') copyStudentLink();
-  if (t.id === 'copyBoardLinkBtn'){
-    const inp = $('boardLinkInput');
-    if (inp){
-      inp.select(); inp.setSelectionRange(0, 99999);
-      if (navigator.clipboard) navigator.clipboard.writeText(inp.value)
-        .then(()=>showCopyToast('✅ تم نسخ رابط شاشة العرض'))
-        .catch(()=>document.execCommand('copy'));
-      else document.execCommand('copy');
-      showCopyToast('✅ تم نسخ رابط شاشة العرض');
-    }
-  }
   if (t.id === 'shareWhatsappBtn') shareWhatsapp();
   if (t.id === 'openStudentLinkBtn') openStudentLink();
-  if (t.id === 'openBoardFromAdminBtn') openBoardLink();
+  if (t.id === 'openBoardFromAdminBtn') window.open(shareUrl() + '?view=board', '_blank');
   if (t.id === 'audioPlayBtn') playAudioPreview();
   if (t.id === 'audioStopBtn') stopAudioPreview();
   if (t.id === 'audioDeleteBtn') deleteAudio();
@@ -4260,9 +3883,6 @@ startBtn.addEventListener('click', () => {
 });
 $('restartBtn').addEventListener('click', () => {
   stopConfettiLoop();
-  currentWinnerId = null;
-  const banner = $('boardWinnerBanner');
-  if (banner){ banner.classList.remove('winner-active'); banner.style.display = 'none'; }
   student.score = 0; student.correct = 0; student.totalTime = 0; student.answers = [];
   idx = 0;
   goTo('screen-start');
@@ -4273,30 +3893,19 @@ $('printBtn').addEventListener('click', () => {
   setTimeout(() => window.print(), 120);
 });
 $('viewBoardBtn').addEventListener('click', () => {
-  window.open(getBoardLink(), '_blank');
+  window.open(shareUrl() + '?view=board', '_blank');
 });
 
 /* ============================================================
    27) تطبيق الشعارات
-   ⚠️ شعار المدرسة يظهر فقط على: شاشة الدخول + الصفحة الرئيسية + بطاقة الطباعة
-   ⛔ لا يظهر على: لوحة الصدارة، شاشة العرض، التقرير، لوحة المدير، شاشة الأسئلة
    ============================================================ */
 (function applySchoolLogo(){
   if (!SCHOOL_LOGO_DATA || SCHOOL_LOGO_DATA.length < 50){
     console.log('[Logo] ⏳ لم يُضف شعار المدرسة بعد');
     return;
   }
-  document.querySelectorAll('.school-logo-img').forEach(img => {
-    // تجاهل أي شعار داخل شاشات: العرض، التقرير، لوحة المدير، الأسئلة، النتيجة
-    if (img.closest('#screen-board')) return;
-    if (img.closest('#screen-report')) return;
-    if (img.closest('#screen-admin')) return;
-    if (img.closest('#screen-quiz')) return;
-    if (img.closest('#screen-result')) return;
-    if (img.closest('#screen-between')) return;
-    img.src = SCHOOL_LOGO_DATA;
-  });
-  console.log('[Logo] ✓ تم تطبيق شعار مدارس العرب (في الأماكن المسموحة فقط)');
+  document.querySelectorAll('.school-logo-img').forEach(img => { img.src = SCHOOL_LOGO_DATA; });
+  console.log('[Logo] ✓ تم تطبيق شعار مدارس العرب');
 })();
 (function applyHeaderLogo(){
   const el = $('ndHeaderImg');
@@ -4313,8 +3922,6 @@ $('viewBoardBtn').addEventListener('click', () => {
    28) الإقلاع
    ============================================================ */
 Cloud.init();
-
-// حمّل من localStorage أولاً للعرض السريع
 CustomAudio.loadFromStorage();
 CustomLogo.loadFromStorage();
 LogoSize.loadFromStorage();
@@ -4322,25 +3929,6 @@ bindLogoSizeControls();
 SideImages.loadFromStorage();
 BgLogo.loadFromStorage();
 bindBgLogoControls();
-
-// ثم حمّل من السحابة + استمع للتحديثات اللحظية
-(async function loadFromCloud(){
-  let tries = 0;
-  while (typeof MediaSync === 'undefined' || !MediaSync.isReady()){
-    await new Promise(r => setTimeout(r, 400));
-    if (++tries > 40) break;
-  }
-  try {
-    const cfg = await MediaSync.load();
-    if (cfg && Object.keys(cfg).length){
-      MediaSync.applyConfig(cfg);
-      console.log('[Media] ✓ تم تحميل الوسائط من السحابة');
-    }
-    MediaSync.listen();
-    console.log('[Media] 👂 listening for realtime updates');
-  } catch(e){ console.warn('[Media] initial load failed', e); }
-})();
-
 buildMap();
 renderMap(0);
 
